@@ -192,22 +192,82 @@
       background: rgba(255, 255, 255, 0.08);
     }
 
-    .video-link {
-      margin-top: 1.15rem;
-    }
-
-    .video-link a {
+    .video-card {
+      position: relative;
+      display: block;
+      width: min(100%, 430px);
+      margin-top: 1.4rem;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      border-radius: 15px;
       color: #ffffff;
-      padding-bottom: 0.18rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.65);
-      font-size: 0.93rem;
-      font-weight: 750;
+      background: rgba(0, 0, 0, 0.2);
       text-decoration: none;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+      transition: transform 0.2s ease, border-color 0.2s ease;
     }
 
-    .video-link a:hover {
-      color: var(--mint);
+    .video-card:hover {
+      transform: translateY(-3px);
       border-color: var(--mint);
+    }
+
+    .video-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      opacity: 0.75;
+      transition: opacity 0.2s ease, transform 0.25s ease;
+    }
+
+    .video-card:hover img {
+      opacity: 0.9;
+      transform: scale(1.03);
+    }
+
+    .video-card-overlay {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 1rem;
+      background: linear-gradient(
+        to top,
+        rgba(5, 24, 16, 0.92),
+        rgba(5, 24, 16, 0.1)
+      );
+    }
+
+    .play-icon {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      color: #123c2b;
+      background: var(--mint);
+      font-size: 0.85rem;
+    }
+
+    .video-card strong,
+    .video-card small {
+      display: block;
+    }
+
+    .video-card strong {
+      font-size: 1rem;
+      font-weight: 800;
+    }
+
+    .video-card small {
+      margin-top: 0.08rem;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 0.78rem;
     }
 
     section {
@@ -445,15 +505,27 @@
           </a>
         </div>
 
-        <div class="video-link">
-          <a
-            href="https://youtu.be/j5H50H3p_Rw"
-            target="_blank"
-            rel="noopener noreferrer"
+        <a
+          class="video-card"
+          href="https://youtu.be/j5H50H3p_Rw"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Watch the Environmental Science admissions film on YouTube"
+        >
+          <img
+            src="https://img.youtube.com/vi/j5H50H3p_Rw/maxresdefault.jpg"
+            alt="Watch the Environmental Science admissions film"
           >
-            Watch the film <span aria-hidden="true">↗</span>
-          </a>
-        </div>
+
+          <span class="video-card-overlay">
+            <span class="play-icon">▶</span>
+
+            <span>
+              <strong>Watch the film</strong>
+              <small>See Environmental Science in action</small>
+            </span>
+          </span>
+        </a>
       </div>
     </section>
 
